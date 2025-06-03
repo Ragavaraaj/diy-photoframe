@@ -32,9 +32,15 @@ jobs:
       - name: Build
         run: make build
 
+      - name: Create a Git Tag (if not exists)
+        run: |
+          tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
+          git tag -f $tag
+          git push origin $tag
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: diy-photoframe.tar.gz
+          files: ./build/diy-photoframe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
