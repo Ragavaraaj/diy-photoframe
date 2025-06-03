@@ -31,3 +31,12 @@ jobs:
 
       - name: Build
         run: make build
+
+      - name: Upload to github
+        run: |
+          if [ -f ./build/diy-photoframe ]; then
+            echo "Uploading diy-photoframe"
+            gh release upload latest ./build/diy-photoframe --clobber
+          else
+            echo "No diy-photoframe binary found to upload"
+          fi
