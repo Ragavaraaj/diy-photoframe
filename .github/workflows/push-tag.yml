@@ -1,0 +1,20 @@
+name: Tag push
+
+on:
+  push:
+    branches:
+      - "main" # Triggers on pushes to the main branch
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create a Git Tag (if not exists)
+        run: |
+          tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v1.0.0")
+          git tag -f $tag
+          git push origin $tag
