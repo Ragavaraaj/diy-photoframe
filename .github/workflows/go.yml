@@ -39,6 +39,9 @@ jobs:
         run: |
           if [ -f ./build/diy-photoframe ]; then
             echo "Uploading diy-photoframe"
+            # Check if the 'latest' release exists, create it if it doesn't
+            gh release view latest || gh release create latest -t "Latest Release" -n "Automatically created release"
+            
             gh release upload latest ./build/diy-photoframe --clobber
           else
             echo "No diy-photoframe binary found to upload"
