@@ -12,11 +12,11 @@ vet:
 
 build:
 	echo "Building the application..."
-	go build -o diy-photoframe ./build
+	go build -o ./build/
 
 brun: build
 	echo "Running the application in background..."
-	./build/diy-photoframe 
+	../build/diy-photoframe 
 	
 run: 
 	echo "Running the application..."
