@@ -21,7 +21,7 @@ jobs:
           go-version: "1.24"
 
       - name: Install Dependencies for Gioui
-        run: apt install -y gcc pkg-config libwayland-dev libx11-dev libx11-xcb-dev libxkbcommon-x11-dev libgles2-mesa-dev libegl1-mesa-dev libffi-dev libxcursor-dev libvulkan-dev
+        run: sudo apt install -y gcc pkg-config libwayland-dev libx11-dev libx11-xcb-dev libxkbcommon-x11-dev libgles2-mesa-dev libegl1-mesa-dev libffi-dev libxcursor-dev libvulkan-dev
 
       - name: Install Gioui
         run: go install gioui.org/cmd/gogio@latest
