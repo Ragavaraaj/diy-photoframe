@@ -5,12 +5,7 @@ on:
     branches:
       - "main" # Triggers on pushes to the main branch
     tags:
-      - "v*.*.*" # Triggers on version tags like v1.0.0
-  pull_request:
-    branches:
-      - "main" # Triggers on pull requests to the main branch
-    tags:
-      - "v*.*.*" # Triggers on version tags like v1.0.0
+      - "v*.*.*" # Triggers on version tags
 
 jobs:
   build-and-release:
